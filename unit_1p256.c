@@ -57,9 +57,10 @@ int main()
         gain2 = ((pwrDiffAbs * 100) / 256);
 
         printf(
-            "%02x%02x:  %+6d, %11lf, %c%d.%02d\n",
+            "%02x%02x:  %5u, %+6d, %11lf, %c%d.%02d\n",
             ((g_pwrDiff[i] >> 8) & 0xFF),
             ((g_pwrDiff[i]     ) & 0xFF),
+            (unsigned short)g_pwrDiff[i],
             g_pwrDiff[i],
             gain,
             sign,

@@ -1,7 +1,7 @@
 CC = gcc
 
 APPS  = ambiguous alignmemt cpu_speed network_order
-APPS += ptr_array unit_1p256
+APPS += ptr_array tick_msec unit_1p256
 
 all: $(APPS)
 
@@ -18,6 +18,9 @@ network_order: network_order.c
 	$(CC) -Wall -o $@ $<
 
 ptr_array: ptr_array.c
+	$(CC) -Wall -o $@ $<
+
+tick_msec: tick_msec.c
 	$(CC) -Wall -o $@ $<
 
 unit_1p256: unit_1p256.c
