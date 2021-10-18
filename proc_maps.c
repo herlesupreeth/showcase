@@ -3,7 +3,7 @@
 #include <string.h>
 #include <unistd.h>
 
-#define MEGABYTE(n) (n << 20)
+#define KILOBYTE(n) (n << 10)
 
 /*
 *  cat /proc/$PID/maps
@@ -12,11 +12,14 @@
 *  08048000-08056000  r-xp   00000000  03:0c  64593  /usr/sbin/gpm
 */
 
-char g_string[80];
+char g_string[80] = {
+    'H', 'e', 'l', 'l', 'o', ',', 0x20, 'w', 'o', 'r', 'l', 'd', '!', 0x00,
+};
 
 int main(int argc, char *argv[])
 {
     void *pBuf = NULL;
+    char string[80];
     int size = 1;
     pid_t pid;
 
@@ -26,33 +29,34 @@ int main(int argc, char *argv[])
     }
     else
     {
-        printf("Usage: proc_maps [mega_byte]\n");
-        printf("\n");
+        printf("Usage: proc_maps [KB]\n\n");
     }
 
     pid = getpid();
-    printf("PID is %d\n", pid);
-    printf("main() at %p\n", main);
+    printf("PID is [1;33m%d[0m\n\n", pid);
+    printf("main()       at %p\n", main);
+    printf("printf()     at %p\n", printf);
     printf("g_string[80] at %p\n", g_string);
+    printf("string[80]   at %p\n", string);
 
     if (size > 0)
     {
-        pBuf = malloc( MEGABYTE(size) );
-        memset(pBuf, 0x5A, MEGABYTE(size));
+        pBuf = malloc( KILOBYTE(size) );
+        memset(pBuf, 0x5A, KILOBYTE(size));
         printf(
-            "pBuf at %p - %p (%d MB)\n",
+            "pBuf         at %p - %p (%d KB)\n",
             pBuf,
-            (pBuf + MEGABYTE(size)),
+            (pBuf + KILOBYTE(size)),
             size
         );
     }
 
-    sleep( 1 );
+    usleep( 10000 );
 
     printf("\n");
-    memset(g_string, 0, 80);
-    sprintf(g_string, "cat /proc/%u/maps", pid);
-    system( g_string );
+    memset(string, 0, 80);
+    sprintf(string, "cat /proc/%u/maps", pid);
+    system( string );
     printf("\n");
 
     printf("Press ENTER to terminate ...\n");
