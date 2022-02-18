@@ -19,9 +19,14 @@ unsigned long long double2bin(double fraction, int bits)
             val64 = ((val64 << 0x1) | (unsigned long long)(digit & 0x1));
             len++;
 
-            if (len >= bits) break;
+            if (len >= bits) return val64;
 
             fraction = ((fraction * 2) - digit);
+        }
+
+        while (len++ < bits)
+        {
+            val64 <<= 0x1;
         }
     }
 
