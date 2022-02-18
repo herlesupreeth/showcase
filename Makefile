@@ -1,7 +1,7 @@
 CC = gcc
 
-APPS  = ambiguous alignmemt bit_field cpu_speed network_order
-APPS += proc_maps ptr_array quine tick_msec unit_1p256
+APPS  = ambiguous alignmemt bit_field cpu_speed fra2bin
+APPS += network_order proc_maps ptr_array quine tick_msec unit_1p256
 
 all: $(APPS)
 
@@ -15,6 +15,9 @@ bit_field: bit_field.c
 	$(CC) -Wall -o $@ $<
 
 cpu_speed: cpu_speed.c
+	$(CC) -Wall -o $@ $<
+
+fra2bin: fra2bin.c
 	$(CC) -Wall -o $@ $<
 
 network_order: network_order.c
