@@ -1,7 +1,7 @@
 CC = gcc
 
 APPS  = ambiguous alignmemt bit_field cpu_speed fra2bin
-APPS += network_order proc_maps ptr_array quine tick_msec unit_1p256
+APPS += negative network_order proc_maps ptr_array quine tick_msec
 
 all: $(APPS)
 
@@ -20,6 +20,9 @@ cpu_speed: cpu_speed.c
 fra2bin: fra2bin.c
 	$(CC) -Wall -o $@ $<
 
+negative: negative.c
+	$(CC) -Wall -o $@ $<
+
 network_order: network_order.c
 	$(CC) -Wall -o $@ $<
 
@@ -33,9 +36,6 @@ quine: quine.c
 	$(CC) -Wall -o $@ $<
 
 tick_msec: tick_msec.c
-	$(CC) -Wall -o $@ $<
-
-unit_1p256: unit_1p256.c
 	$(CC) -Wall -o $@ $<
 
 clean:
