@@ -16,6 +16,13 @@ int main(int argc, char *argv[])
     unsigned char      u8;
     signed char        i8;
 
+
+    if (argc > 1)
+    {
+        printf("\"%s\" -> %d\n", argv[1], atoi( argv[1]) );
+        return 0;
+    }
+
     u64 = atoi( MAX_INTEGER_32BIT );
     i64 = atoi( MAX_INTEGER_32BIT );
     u32 = atoi( MAX_INTEGER_32BIT );

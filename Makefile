@@ -1,7 +1,7 @@
 CC = gcc
 
-APPS  = atoi ambiguous alignmemt bit_field cpu_speed fra2bin
-APPS += negative network_order proc_maps ptr_array
+APPS  = atoi ambiguous alignmemt arrayindex bit_field cpu_speed
+APPS += fra2bin negative network_order proc_maps ptr_array
 APPS += quine stdin tick_msec
 
 all: $(APPS)
@@ -13,6 +13,9 @@ ambiguous: ambiguous.c
 	$(CC) -Wall -o $@ $<
 
 alignmemt: alignmemt.c
+	$(CC) -Wall -o $@ $<
+
+arrayindex: arrayindex.c
 	$(CC) -Wall -o $@ $<
 
 bit_field: bit_field.c
