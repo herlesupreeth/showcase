@@ -1,8 +1,8 @@
 CC = gcc
 
 APPS  = atoi ambiguous alignmemt arrayindex bit_field cpu_speed
-APPS += fra2bin negative network_order proc_maps ptr_array
-APPS += quine stdin tick_msec
+APPS += float_inf float_nan fra2bin negative network_order
+APPS += proc_maps ptr_array quine stdin tick_msec
 
 all: $(APPS)
 
@@ -23,6 +23,12 @@ bit_field: bit_field.c
 
 cpu_speed: cpu_speed.c
 	$(CC) -Wall -o $@ $<
+
+float_inf: float_inf.c
+	$(CC) -Wall -lm -o $@ $<
+
+float_nan: float_nan.c
+	$(CC) -Wall -lm -o $@ $<
 
 fra2bin: fra2bin.c
 	$(CC) -Wall -o $@ $<
