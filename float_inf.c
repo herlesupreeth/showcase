@@ -5,15 +5,14 @@
 
 int main(int argc, char *argv[])
 {
+    double A = 0;
     double R;
 
-    if (argc > 1)
-        R = log10( strtod(argv[1], NULL) );
-    else
-        R = log10( 0 );
+    if (argc > 1) A = strtod(argv[1], NULL);
+    R = log10( A );
 
     if ( isinf(R) ) printf("INF: ");
-    printf("%f\n", R);
+    printf("log10( %f ) = %f\n", A, R);
 
     return 0;
 }

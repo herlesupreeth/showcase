@@ -2,7 +2,7 @@ CC = gcc
 
 APPS  = atoi ambiguous alignmemt arrayindex bit_field cpu_speed
 APPS += float_inf float_nan fra2bin negative network_order
-APPS += proc_maps ptr_array quine stdin tick_msec
+APPS += proc_maps ptr_array quine stdin tick_msec time_stamp
 
 all: $(APPS)
 
@@ -52,6 +52,9 @@ stdin: stdin.c
 	$(CC) -Wall -o $@ $<
 
 tick_msec: tick_msec.c
+	$(CC) -Wall -o $@ $<
+
+time_stamp: time_stamp.c
 	$(CC) -Wall -o $@ $<
 
 clean:

@@ -5,15 +5,14 @@
 
 int main(int argc, char *argv[])
 {
+    double A = -1;
     double R;
 
-    if (argc > 1)
-        R = sqrt( strtod(argv[1], NULL) );
-    else
-        R = sqrt( -1 );
+    if (argc > 1) A = strtod(argv[1], NULL);
+    R = sqrt( A );
 
     if ( isnan(R) ) printf("NaN: ");
-    printf("%f\n", R);
+    printf("sqrt( %f ) = %f\n", A, R);
 
     return 0;
 }
