@@ -1,7 +1,7 @@
 CC = gcc
 
 APPS  = atoi ambiguous alignmemt arrayindex bit_field cpu_speed
-APPS += float_inf float_nan fra2bin negative network_order
+APPS += float_inf float_nan fra2bin memory_leak negative network_order
 APPS += proc_maps ptr_array quine stdin tick_msec time_stamp
 
 all: $(APPS)
@@ -32,6 +32,9 @@ float_nan: float_nan.c
 
 fra2bin: fra2bin.c
 	$(CC) -Wall -o $@ $<
+
+memory_leak: memory_leak.c
+	$(CC) -Wall -g -lpthread -o $@ $<
 
 negative: negative.c
 	$(CC) -Wall -o $@ $<
