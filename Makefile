@@ -1,13 +1,11 @@
 CC = gcc
 
-APPS  = atoi ambiguous alignmemt arrayindex bit_field cpu_speed
+APPS  = ambiguous alignmemt arrayindex cpu_speed
 APPS += float_inf float_nan fra2bin memory_leak negative network_order
 APPS += proc_maps ptr_array quine stdin tick_msec time_stamp
+APPS += wrong_constant wrong_equal wrong_shift wrong_signed
 
 all: $(APPS)
-
-atoi: atoi.c
-	$(CC) -Wall -o $@ $<
 
 ambiguous: ambiguous.c
 	$(CC) -Wall -o $@ $<
@@ -16,9 +14,6 @@ alignmemt: alignmemt.c
 	$(CC) -Wall -o $@ $<
 
 arrayindex: arrayindex.c
-	$(CC) -Wall -o $@ $<
-
-bit_field: bit_field.c
 	$(CC) -Wall -o $@ $<
 
 cpu_speed: cpu_speed.c
@@ -58,6 +53,18 @@ tick_msec: tick_msec.c
 	$(CC) -Wall -o $@ $<
 
 time_stamp: time_stamp.c
+	$(CC) -Wall -o $@ $<
+
+wrong_constant: wrong_constant.c
+	$(CC) -Wall -o $@ $<
+
+wrong_equal: wrong_equal.c
+	$(CC) -Wall -o $@ $<
+
+wrong_shift: wrong_shift.c
+	$(CC) -Wall -o $@ $<
+
+wrong_signed: wrong_signed.c
 	$(CC) -Wall -o $@ $<
 
 clean:
