@@ -34,6 +34,7 @@ int main(void)
 {
     char *line;
     size_t len;
+    int n;
 
 
     #if DO_READ
@@ -64,15 +65,31 @@ int main(void)
     #endif
 
     #if DO_GETCHAR
+    /*
+    *  1  2  3  4  5  6
+    *  H  e  l  l  o \n
+    */
     memset(g_buf, 0xFF, 256);
-    g_buf[0] = getchar();
-    dump("getchar", g_buf, 1);
+    n = 0;
+    do
+    {
+        g_buf[n] = getchar();
+    } while (g_buf[n++] != '\n');
+    dump("getchar", g_buf, n);
     #endif
 
     #if DO_GETC
+    /*
+    *  1  2  3  4  5  6
+    *  H  e  l  l  o \n
+    */
     memset(g_buf, 0xFF, 256);
-    g_buf[0] = getc( stdin );
-    dump("getc", g_buf, 1);
+    n = 0;
+    do
+    {
+        g_buf[n] = getc( stdin );
+    } while (g_buf[n++] != '\n');
+    dump("getc", g_buf, n);
     #endif
 
     #if DO_FGETS
@@ -98,7 +115,7 @@ int main(void)
     line = NULL;
     if (getline(&line, &len, stdin) > 0)
     {
-        dump("getline", (void *)line, (len+1));
+        dump("getline", (void *)line, len);
     }
     free( line );
     #endif
