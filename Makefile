@@ -2,7 +2,7 @@ CC = gcc
 
 APPS  = ambiguous alignmemt arrayindex cpu_speed
 APPS += float_inf float_nan fra2bin memory_leak negative network_order
-APPS += proc_maps ptr_array quine stdin tick_msec time_stamp
+APPS += proc_maps ptr_array quine spin stdin tick_msec time_stamp
 APPS += wrong_constant wrong_equal wrong_shift wrong_signed
 
 all: $(APPS)
@@ -44,6 +44,9 @@ ptr_array: ptr_array.c
 	$(CC) -Wall -o $@ $<
 
 quine: quine.c
+	$(CC) -Wall -o $@ $<
+
+spin: spin.c
 	$(CC) -Wall -o $@ $<
 
 stdin: stdin.c
