@@ -26,7 +26,7 @@ int main(void)
         usleep(100000);
         fprintf(stderr, "\b");
     }
-    fprintf(stderr, "\n");
+    fprintf(stderr, "%c\n", spin[i & 0x3]);
 
     return 0;
 }
