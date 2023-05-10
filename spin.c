@@ -3,17 +3,6 @@
 #include <string.h>
 #include <unistd.h>
 
-
-#define DO_READ    1
-#define DO_SCANF   1
-#define DO_GETCHAR 1
-#define DO_GETC    1
-#define DO_FGETS   1
-#define DO_GETLINE 1
-
-
-unsigned char g_buf[256];
-
 int main(void)
 {
     char spin[4] = { '-', '\\', '|', '/' };
