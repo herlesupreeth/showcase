@@ -6,7 +6,7 @@
 
 int INIT(int init)
 {
-    printf("[1] INIT\n\n");
+    printf("[1] INIT %d\n\n", init);
     return init;
 }
 
