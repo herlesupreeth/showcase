@@ -3,7 +3,7 @@ CC = gcc
 APPS  = ambiguous alignmemt arrayindex cpu_speed
 APPS += float_inf float_nan for_loop fra2bin memory_leak negative network_order
 APPS += proc_maps ptr_array quine spin stdin tick_msec time_stamp
-APPS += wrong_constant wrong_equal wrong_shift wrong_signed
+APPS += wrong_constant wrong_equal wrong_mod wrong_shift wrong_signed
 
 all: $(APPS)
 
@@ -66,6 +66,9 @@ wrong_constant: wrong_constant.c
 
 wrong_equal: wrong_equal.c
 	$(CC) -Wall -o $@ $<
+
+wrong_mod: wrong_mod.c
+	$(CC) -Wall -lm -o $@ $<
 
 wrong_shift: wrong_shift.c
 	$(CC) -Wall -o $@ $<
