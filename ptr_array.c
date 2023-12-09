@@ -7,7 +7,7 @@
 typedef struct _tData
 {
     int  id;
-    char name[80];
+    char name[16];
 } tData;
 
 void show_array(tData *pObj[], int num)
@@ -96,8 +96,8 @@ int main(void)
     sprintf(pData[3]->name, "Wednesday");
 
 
-    dump(pData, 32);
-    dump(pData[0], 416);
+    dump(pData, (sizeof( tData* ) * 4));
+    dump(pData[0], 100);
 
     show_array(&pData[0], 4);
 
