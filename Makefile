@@ -2,7 +2,7 @@ CC = gcc
 
 APPS  = ambiguous alignmemt arrayindex cpu_speed
 APPS += float_inf float_nan for_loop fra2bin memory_leak negative network_order
-APPS += proc_maps ptr_array quine spin stdin tick_msec time_stamp
+APPS += proc_maps ptr_array quine spin stdin system_bg tick_msec time_stamp
 APPS += wrong_atan2 wrong_constant wrong_equal wrong_mod wrong_mul wrong_mul.fast
 APPS += wrong_shift wrong_signed
 
@@ -54,6 +54,9 @@ spin: spin.c
 	$(CC) $< -Wall -o $@
 
 stdin: stdin.c
+	$(CC) $< -Wall -o $@
+
+system_bg: system_bg.c
 	$(CC) $< -Wall -o $@
 
 tick_msec: tick_msec.c
