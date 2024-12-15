@@ -2,9 +2,11 @@ CC = gcc
 
 APPS  = ambiguous alignmemt arrayindex cpu_speed
 APPS += float_inf float_nan for_loop fra2bin memory_leak negative network_order
-APPS += proc_maps ptr_array quine spin stdin system_bg tick_msec time_stamp
+APPS += proc_maps ptr_array quine spin stdin system_bg
+APPS += tcp_mass_data_client tcp_mass_data_server tick_msec time_stamp
 APPS += wrong_atan2 wrong_constant wrong_equal wrong_mod wrong_mul wrong_mul.fast
 APPS += wrong_shift wrong_signed
+APPS += udp_mass_data_recv udp_mass_data_send
 
 all: $(APPS)
 
@@ -59,6 +61,12 @@ stdin: stdin.c
 system_bg: system_bg.c
 	$(CC) $< -Wall -o $@
 
+tcp_mass_data_client: tcp_mass_data_client.c
+	$(CC) $< -Wall -o $@
+
+tcp_mass_data_server: tcp_mass_data_server.c
+	$(CC) $< -Wall -o $@
+
 tick_msec: tick_msec.c
 	$(CC) $< -Wall -o $@
 
@@ -87,6 +95,12 @@ wrong_shift: wrong_shift.c
 	$(CC) $< -Wall -o $@
 
 wrong_signed: wrong_signed.c
+	$(CC) $< -Wall -o $@
+
+udp_mass_data_recv: udp_mass_data_recv.c
+	$(CC) $< -Wall -o $@
+
+udp_mass_data_send: udp_mass_data_send.c
 	$(CC) $< -Wall -o $@
 
 clean:
